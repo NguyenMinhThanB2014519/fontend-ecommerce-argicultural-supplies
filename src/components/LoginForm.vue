@@ -1,5 +1,5 @@
 <template>
-  <section class="vh-100">
+  <section class="vh-100 banner">
     <div class="container-fluid h-custom">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-md-9 col-lg-6 col-xl-5">
@@ -18,7 +18,7 @@
                 data-mdb-button-init
                 data-mdb-ripple-init
                 class="btn btn-primary btn-floating mx-1">
-                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-google"></i>
               </button>
 
               <button
@@ -97,38 +97,11 @@
         </div>
       </div>
     </div>
-    <div
-      class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-      <!-- Copyright -->
-
-      <!-- Copyright -->
-
-      <!-- Right -->
-      <div>
-        <a href="#!" class="text-white me-4">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#!" class="text-white me-4">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#!" class="text-white me-4">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="#!" class="text-white">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-      </div>
-      <!-- Right -->
-    </div>
   </section>
 </template>
 
-<script setup>
-import "bootstrap/dist/css/bootstrap.css";
-// import "mdb-ui-kit/css/mdb.min.css";
-</script>
-<style>
-/* Thay đổi từ scoped sang global */
+<script setup></script>
+<style scoped>
 .divider:after,
 .divider:before {
   content: "";
@@ -138,6 +111,12 @@ import "bootstrap/dist/css/bootstrap.css";
 }
 .h-custom {
   height: calc(100% - 73px);
+}
+.btn-primary {
+  background-color: #48cf6c;
+}
+.banner {
+  background-color: red;
 }
 @media (max-width: 450px) {
   .h-custom {

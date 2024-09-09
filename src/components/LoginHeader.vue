@@ -21,7 +21,7 @@
 
   padding: 25px 0;
   width: 100%;
-  background-color: red;
+  /* background-color: #48cf6c; */
   .left-section {
     display: flex;
     align-items: center;
