@@ -76,7 +76,6 @@
                   Remember me
                 </label>
               </div>
-              <a href="#!" class="text-body">Forgot password?</a>
             </div>
 
             <div class="text-center text-lg-start mt-4 pt-2">
@@ -86,11 +85,11 @@
                 data-mdb-ripple-init
                 class="btn btn-primary btn-lg"
                 style="padding-left: 2.5rem; padding-right: 2.5rem">
-                Login
+                Register
               </button>
               <p class="small fw-bold mt-2 pt-1 mb-0">
-                Don't have an account?
-                <a href="#!" class="link-danger">Register</a>
+                Have an account?
+                <RouterLink to="/login" class="link-danger">Login</RouterLink>
               </p>
             </div>
           </form>
@@ -115,9 +114,9 @@
 .btn-primary {
   background-color: #48cf6c;
 }
-.banner {
-  background-color: red;
-}
+/* .banner { */
+/* background-color: red; */
+/* } */
 @media (max-width: 450px) {
   .h-custom {
     height: 100%;

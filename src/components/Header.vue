@@ -9,22 +9,22 @@ import HoverModal from "./HoverModal.vue";
       <div class="header-left-pane">
         <RouterLink to="/sellerchannel">Seller channel |</RouterLink>
         <RouterLink to="/becomeasellerchanel">
-          Become a seller channel |</RouterLink
+          Trở thành kênh người bán |</RouterLink
         >
-        <RouterLink to="/dowloadapp"> Dowload the App |</RouterLink>
-        <RouterLink to="/connect"> Connect</RouterLink>
+        <RouterLink to="/dowloadapp"> Tải ứng dụng |</RouterLink>
+        <RouterLink to="/connect"> Kết nối</RouterLink>
       </div>
 
       <div class="header-right-pane">
         <HoverModal />
 
-        <RouterLink to="/help"> Help </RouterLink>
+        <RouterLink to="/help"> Giúp đỡ </RouterLink>
         <select class="" name="" id="">
           <option value="tiengviet">Tiếng Việt</option>
           <option value="tienganh">Tiếng Anh</option>
         </select>
-        <RouterLink to="/register"> Register |</RouterLink>
-        <RouterLink to="/login"> Login</RouterLink>
+        <RouterLink to="/register"> Đăng ký |</RouterLink>
+        <RouterLink to="/login"> Đăng nhập</RouterLink>
       </div>
     </div>
   </main>
@@ -34,14 +34,14 @@ import HoverModal from "./HoverModal.vue";
 main {
   background-color: #f94d2f;
   display: flex;
-  justify-content: center; /* Căn giữa theo chiều ngang */
-  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center;
+  align-items: center;
 
   .container {
     padding: 4px 2px;
     display: flex;
-    justify-content: space-between; /* Chia đều khoảng cách giữa các phần tử */
-    width: 80%; /* Điều chỉnh kích thước để phù hợp */
+    justify-content: space-between;
+    width: 80%;
   }
 
   select {

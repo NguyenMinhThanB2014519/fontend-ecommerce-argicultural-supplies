@@ -4,7 +4,9 @@
     <header class="header container">
       <div class="left-section">
         <img src="" alt="Logo" class="logo" />
-        <h1 class="app-name">Tên APP</h1>
+        <h1 class="app-name">
+          <RouterLink to="/">Tên APP</RouterLink>
+        </h1>
       </div>
       <div class="right-section">
         <p>Bạn cần giúp đỡ</p>
