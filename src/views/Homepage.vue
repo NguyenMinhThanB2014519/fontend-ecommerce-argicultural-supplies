@@ -1,7 +1,62 @@
-<template>
-  <div>Homepage</div>
-</template>
+<script setup>
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router"; // Thêm import useRouter
+import Categories from "@/components/Category/Categories.vue";
+import categoriesService from "@/services/categories.service";
 
-<script setup></script>
+const categoriesData = ref([]);
+const categoryById = ref(null);
+const router = useRouter(); // Khởi tạo router
+
+onMounted(async () => {
+  try {
+    categoriesData.value = await categoriesService.getCategories();
+    console.log(categoriesData.value);
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+  }
+});
+
+// Fetch a category by ID
+const fetchCategoryById = async (id) => {
+  try {
+    categoryById.value = await categoriesService.getCategoryById(id);
+    console.log(categoryById.value);
+  } catch (error) {
+    console.error("Error fetching category by ID:", error);
+  }
+};
+
+// Example of how to call fetchCategoryById
+onMounted(() => {
+  fetchCategoryById(1);
+});
+
+// Hàm xử lý khi danh mục được chọn
+const handleCategorySelected = (categoryId) => {
+  console.log("Selected category ID:", categoryId);
+
+  // Tìm danh mục tương ứng với ID và chuyển hướng
+  const selectedCategory = categoriesData.value.find(
+    (category) => category.category_id === categoryId
+  );
+  if (selectedCategory) {
+    const categoryName = selectedCategory.category_name
+      .replace(/\s+/g, "-")
+      .toLowerCase(); // Chuyển đổi tên danh mục thành định dạng slug
+    router.push(`/${categoryName}`); // Điều hướng đến route với tên danh mục
+  }
+};
+</script>
+
+<template>
+  <template v-if="!$route.params.name">
+    <categories
+      :categories="categoriesData"
+      @category-selected="handleCategorySelected" />
+  </template>
+
+  <router-view></router-view>
+</template>
 
 <style lang="scss" scoped></style>

@@ -46,7 +46,7 @@
             <div data-mdb-input-init class="form-outline mb-4">
               <input
                 type="email"
-                id="form3Example3"
+                id="email-login"
                 class="form-control form-control-lg"
                 placeholder="Enter a valid email address" />
               <label class="form-label" for="form3Example3"
@@ -58,7 +58,7 @@
             <div data-mdb-input-init class="form-outline mb-3">
               <input
                 type="password"
-                id="form3Example4"
+                id="password-login"
                 class="form-control form-control-lg"
                 placeholder="Enter password" />
               <label class="form-label" for="form3Example4">Password</label>
@@ -82,6 +82,7 @@
             <div class="text-center text-lg-start mt-4 pt-2">
               <button
                 type="button"
+                @click="handleLogin"
                 data-mdb-button-init
                 data-mdb-ripple-init
                 class="btn btn-primary btn-lg"
@@ -102,7 +103,21 @@
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import router from "@/router";
+import { ref } from "vue";
+
+const email = ref("admin");
+const password = ref("123");
+
+const handleLogin = () => {
+  if (email.value === "admin" && password.value === "123") {
+    router.push("/");
+  } else {
+    alert("Login failed");
+  }
+};
+</script>
 <style scoped>
 .divider:after,
 .divider:before {

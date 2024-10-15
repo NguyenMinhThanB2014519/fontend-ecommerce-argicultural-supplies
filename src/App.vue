@@ -16,4 +16,10 @@ const route = useRoute();
 .container {
   max-width: 1140px;
 }
+main {
+  background-color: #f94d2f;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 </style>

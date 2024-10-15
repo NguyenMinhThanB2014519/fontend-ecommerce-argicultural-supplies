@@ -32,11 +32,6 @@ import HoverModal from "./HoverModal.vue";
 
 <style lang="scss" scoped>
 main {
-  background-color: #f94d2f;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   .container {
     padding: 4px 2px;
     display: flex;

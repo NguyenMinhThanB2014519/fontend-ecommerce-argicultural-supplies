@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import LoginPage from "@/views/LoginPage.vue";
 import RegisterPage from "@/views/Register/RegisterPage.vue";
 import Homepage from "@/views/Homepage.vue";
+import CategoryViewsPage from "@/views/CategoriesPage/CategoryViewsPage.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -10,6 +11,13 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: Homepage,
+      meta: { requiresAuth: true },
+      children: [
+        {
+          path: "/:name",
+          component: CategoryViewsPage,
+        },
+      ],
     },
     {
       path: "/sellerchannel",
@@ -17,6 +25,7 @@ const router = createRouter({
       component: SellerChannelViews,
       meta: { hideHeaderViews: true },
     },
+
     {
       path: "/login",
       name: "login",
@@ -31,5 +40,11 @@ const router = createRouter({
     },
   ],
 });
-
+// router.beforeEach((to, from, next) => {
+//   if (to.meta.requiresAuth === true) {
+//     next("/login");
+//   } else {
+//     next();
+//   }
+// });
 export default router;
