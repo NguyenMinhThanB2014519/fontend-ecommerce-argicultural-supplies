@@ -1,4 +1,4 @@
-function makaCategoriesService() {
+function makeCategoriesService() {
   const baseUrl = "/category";
   const headers = {
     "Content-Type": "application/json",
@@ -12,7 +12,10 @@ function makaCategoriesService() {
     let url = `${baseUrl}/${id}`;
     return await fetch(url).then((res) => res.json());
   }
-  return { getCategories, getCategoryById };
+  return {
+    getCategories,
+    getCategoryById,
+  };
 }
 
-export default makaCategoriesService();
+export default makeCategoriesService();

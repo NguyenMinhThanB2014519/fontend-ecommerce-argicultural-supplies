@@ -6,7 +6,7 @@ import categoriesService from "@/services/categories.service";
 
 const categoriesData = ref([]);
 const categoryById = ref(null);
-const router = useRouter(); // Khởi tạo router
+const router = useRouter();
 
 onMounted(async () => {
   try {
@@ -15,21 +15,6 @@ onMounted(async () => {
   } catch (error) {
     console.error("Error fetching categories:", error);
   }
-});
-
-// Fetch a category by ID
-const fetchCategoryById = async (id) => {
-  try {
-    categoryById.value = await categoriesService.getCategoryById(id);
-    console.log(categoryById.value);
-  } catch (error) {
-    console.error("Error fetching category by ID:", error);
-  }
-};
-
-// Example of how to call fetchCategoryById
-onMounted(() => {
-  fetchCategoryById(1);
 });
 
 // Hàm xử lý khi danh mục được chọn
@@ -43,8 +28,8 @@ const handleCategorySelected = (categoryId) => {
   if (selectedCategory) {
     const categoryName = selectedCategory.category_name
       .replace(/\s+/g, "-")
-      .toLowerCase(); // Chuyển đổi tên danh mục thành định dạng slug
-    router.push(`/${categoryName}`); // Điều hướng đến route với tên danh mục
+      .toLowerCase();
+    router.push(`/${categoryName}`); //
   }
 };
 </script>

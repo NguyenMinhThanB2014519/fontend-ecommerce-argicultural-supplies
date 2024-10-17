@@ -14,7 +14,7 @@ const route = useRoute();
 
 <style>
 .container {
-  max-width: 1140px;
+  max-width: 1340px;
 }
 main {
   background-color: #f94d2f;

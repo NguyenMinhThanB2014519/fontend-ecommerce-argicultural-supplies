@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps, ref, computed } from "vue";
+import { useCategoryStore } from "../Store/productsStore"; // Import store
 
 // Nhận dữ liệu qua props từ component cha
 const props = defineProps({
@@ -8,6 +9,9 @@ const props = defineProps({
     required: true,
   },
 });
+
+// Khởi tạo store
+const categoryStore = useCategoryStore();
 
 // Số lượng danh mục hiển thị mỗi lần
 const itemsPerPage = 14; // 2 dòng, mỗi dòng 10 mục
@@ -37,6 +41,11 @@ const goToPreviousPage = () => {
     currentPage.value--;
   }
 };
+
+// Hàm để hiển thị alert với id của danh mục và lưu vào store
+const showCategoryId = (id) => {
+  categoryStore.setCategoryId(id);
+};
 </script>
 
 <template>
@@ -58,13 +67,17 @@ const goToPreviousPage = () => {
           :key="category.category_id"
           :to="'/' + category.category_name.replace(/\s+/g, '-').toLowerCase()"
           class="card m-1"
-          style="width: 8rem">
-          <img
-            class="card-img-top"
-            :src="category.image_url"
-            :alt="category.category_name" />
+          style="width: 8rem"
+          @click="() => showCategoryId(category.category_id)">
+          <!-- <img
+              class="card-img-top"
+              :src="category.image_url"
+              :alt="category.category_name" /> -->
           <div class="card-body">
-            <p class="card-text">{{ category.category_name }}</p>
+            <p class="card-text">
+              {{ category.category_name }}
+              {{ category.category_id }}
+            </p>
           </div>
         </RouterLink>
       </div>
